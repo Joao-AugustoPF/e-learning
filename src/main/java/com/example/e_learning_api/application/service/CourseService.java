@@ -27,7 +27,6 @@ public class CourseService {
             courses = courseRepository.findAll();
         }
 
-        // Converter para DTO
         return courses.stream()
                 .map(course -> new CourseDTO(
                         course.getId(),

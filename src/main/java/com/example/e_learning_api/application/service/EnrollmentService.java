@@ -25,7 +25,6 @@ public class EnrollmentService {
     private final CourseRepository courseRepository;
     private final LogRepository logRepository;
 
-    // Injeção de dependência via construtor
     public EnrollmentService(EnrollmentRepository enrollmentRepository, UserRepository userRepository, CourseRepository courseRepository, LogRepository logRepository) {
         this.enrollmentRepository = enrollmentRepository;
         this.userRepository = userRepository;
@@ -40,7 +39,6 @@ public class EnrollmentService {
         Course course = courseRepository.findById(courseId)
                 .orElseThrow(() -> new CourseNotFoundException("Curso com ID " + courseId + " não encontrado."));
 
-        // Verificar se o usuário já está matriculado no curso
         if (enrollmentRepository.findByUserAndCourse(user, course).isPresent()) {
             throw new IllegalArgumentException("Usuário já está matriculado neste curso.");
         }
@@ -77,17 +75,14 @@ public class EnrollmentService {
     }
 
     public void deleteEnrollment(Long enrollmentId) {
-        // Buscar a matrícula pelo ID
         Enrollment enrollment = enrollmentRepository.findById(enrollmentId)
                 .orElseThrow(() -> new EnrollmentNotFoundException("Matrícula com ID " + enrollmentId + " não encontrada."));
 
-        // Registrar no log a exclusão da matrícula
         Log log = new Log("Matrícula do usuário " + enrollment.getUser().getName() +
                 " no curso " + enrollment.getCourse().getName() +
                 " foi excluída.");
         logRepository.save(log);
 
-        // Deletar a matrícula
         enrollmentRepository.delete(enrollment);
     }
 

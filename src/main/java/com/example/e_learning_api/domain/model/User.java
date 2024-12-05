@@ -22,16 +22,14 @@ public class User {
     private String password;
 
     @Column(nullable = false)
-    private String role; // Exemplo: "STUDENT", "INSTRUCTOR"
+    private String role;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonManagedReference
     private List<Enrollment> enrollments;
 
-    // Construtor vazio
     public User() {}
 
-    // Construtor
     public User(String email, String name, String password, String role) {
         this.email = email;
         this.name = name;
@@ -39,7 +37,6 @@ public class User {
         this.role = role;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

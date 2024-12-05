@@ -8,7 +8,6 @@ import com.example.e_learning_api.domain.repository.LogRepository;
 import com.example.e_learning_api.domain.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
@@ -46,7 +45,6 @@ public class UserService {
 
         User createdUser = userRepository.save(user);
 
-        // Registrar no log
         Log log = new Log(
                 "Usuário criado: " + createdUser.getName() + " (E-mail: " + createdUser.getEmail() + ")"
         );
@@ -59,7 +57,6 @@ public class UserService {
     public User updateUser(Long id, User updatedUser) {
         User existingUser = getUserById(id);
 
-        // Registrar os campos que foram alterados no log
         StringBuilder logMessage = new StringBuilder("Usuário com ID " + id + " atualizado. Alterações: ");
         if (!existingUser.getName().equals(updatedUser.getName())) {
             logMessage.append("Nome alterado de '").append(existingUser.getName()).append("' para '").append(updatedUser.getName()).append("'. ");

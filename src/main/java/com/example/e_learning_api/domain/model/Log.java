@@ -23,10 +23,8 @@ public class Log {
         this.timestamp = LocalDateTime.now();
     }
 
-    // Construtor padrão necessário para o JPA
     public Log() {}
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

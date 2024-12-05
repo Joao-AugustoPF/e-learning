@@ -44,4 +44,11 @@ public class EnrollmentController {
         Enrollment enrollment = enrollmentService.completeEnrollment(enrollmentId);
         return ResponseEntity.ok(enrollment);
     }
+
+    // Endpoint para deletar uma matrícula
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCourse(@PathVariable Long id) {
+        enrollmentService.deleteEnrollment(id);
+        return ResponseEntity.noContent().build();
+    }
 }

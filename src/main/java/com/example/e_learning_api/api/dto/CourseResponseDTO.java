@@ -8,7 +8,6 @@ public class CourseResponseDTO {
     private String instructor;
     private Double price;
 
-    // Construtor
     public CourseResponseDTO(Long id, String name, String description, String instructor, Double price) {
         this.id = id;
         this.name = name;
@@ -17,7 +16,6 @@ public class CourseResponseDTO {
         this.price = price;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

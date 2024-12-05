@@ -12,7 +12,6 @@ public class EnrollmentResponseDTO {
     private LocalDateTime enrollmentDate;
     private Boolean completed;
 
-    // Construtor que aceita um objeto Enrollment
     public EnrollmentResponseDTO(Enrollment enrollment) {
         this.id = enrollment.getId();
         this.courseId = enrollment.getCourse().getId();
@@ -21,7 +20,6 @@ public class EnrollmentResponseDTO {
         this.completed = enrollment.getCompleted();
     }
 
-    // Getters e setters...
     public Long getId() {
         return id;
     }

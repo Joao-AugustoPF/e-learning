@@ -20,7 +20,6 @@ public class UserRequestDTO {
 
     private String role;
 
-    // Getters e Setters
     public String getName() {
         return name;
     }

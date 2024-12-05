@@ -8,7 +8,7 @@ public class ELearningApiApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ELearningApiApplication.class, args);
-		System.out.println("E-learning API iniciada com sucesso!");
+		System.out.println("E-learning API iniciada com sucesso! http://localhost:8080/");
 	}
 
 }

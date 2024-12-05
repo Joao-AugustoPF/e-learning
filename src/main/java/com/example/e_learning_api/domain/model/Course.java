@@ -27,10 +27,8 @@ public class Course {
     @JsonManagedReference
     private List<Enrollment> enrollments;
 
-    // Construtor vazio (obrigatório para JPA)
     public Course() {}
 
-    // Construtor
     public Course(String name, String description, String instructor, Double price) {
         this.name = name;
         this.description = description;
@@ -38,7 +36,6 @@ public class Course {
         this.price = price;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

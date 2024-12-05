@@ -27,10 +27,8 @@ public class Enrollment {
     @Column(nullable = false)
     private Boolean completed;
 
-    // Construtor vazio
     public Enrollment() {}
 
-    // Construtor
     public Enrollment(User user, Course course, LocalDateTime enrollmentDate, Boolean completed) {
         this.user = user;
         this.course = course;
@@ -38,7 +36,6 @@ public class Enrollment {
         this.completed = completed;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }

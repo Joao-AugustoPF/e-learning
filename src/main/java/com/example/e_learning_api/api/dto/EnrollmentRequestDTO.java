@@ -10,7 +10,6 @@ public class EnrollmentRequestDTO {
     @NotNull(message = "O ID do curso é obrigatório.")
     private Long courseId;
 
-    // Getters e Setters
     public Long getUserId() {
         return userId;
     }
