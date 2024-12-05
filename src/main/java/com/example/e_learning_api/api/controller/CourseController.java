@@ -1,5 +1,6 @@
 package com.example.e_learning_api.api.controller;
 
+import com.example.e_learning_api.api.dto.CourseDTO;
 import com.example.e_learning_api.api.dto.CourseRequestDTO;
 import com.example.e_learning_api.api.dto.CourseResponseDTO;
 import com.example.e_learning_api.domain.model.Course;
@@ -20,18 +21,11 @@ public class CourseController {
     @Autowired
     private CourseService courseService;
 
-    // Endpoint para listar todos os cursos
     @GetMapping
-    public ResponseEntity<List<CourseResponseDTO>> getAllCourses() {
-        List<CourseResponseDTO> courses = courseService.getAllCourses().stream()
-                .map(course -> new CourseResponseDTO(
-                        course.getId(),
-                        course.getName(),
-                        course.getDescription(),
-                        course.getInstructor(),
-                        course.getPrice()
-                ))
-                .collect(Collectors.toList());
+    public ResponseEntity<List<CourseDTO>> getAllCourses(
+            @RequestParam(required = false) String name
+    ) {
+        List<CourseDTO> courses = courseService.getFilteredCourses(name);
         return ResponseEntity.ok(courses);
     }
 

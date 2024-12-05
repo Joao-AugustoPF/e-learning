@@ -1,5 +1,6 @@
 package com.example.e_learning_api.domain.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import java.util.List;
 
@@ -23,6 +24,7 @@ public class Course {
     private Double price;
 
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Enrollment> enrollments;
 
     // Construtor vazio (obrigatório para JPA)

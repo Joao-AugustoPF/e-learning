@@ -1,18 +1,45 @@
 package com.example.e_learning_api.application.service;
 
+import com.example.e_learning_api.api.dto.CourseDTO;
 import com.example.e_learning_api.domain.exception.CourseNotFoundException;
 import com.example.e_learning_api.domain.model.Course;
 import com.example.e_learning_api.domain.repository.CourseRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class CourseService {
 
-    @Autowired
-    private CourseRepository courseRepository;
+    private final CourseRepository courseRepository;
+
+    public CourseService(CourseRepository courseRepository) {
+        this.courseRepository = courseRepository;
+    }
+
+    public List<CourseDTO> getFilteredCourses(String name) {
+        List<Course> courses;
+
+        if (name != null) {
+            courses = courseRepository.findByNameContaining(name);
+        } else {
+            courses = courseRepository.findAll();
+        }
+
+        // Converter para DTO
+        return courses.stream()
+                .map(course -> new CourseDTO(
+                        course.getId(),
+                        course.getName(),
+                        course.getDescription(),
+                        course.getPrice(),
+                        course.getInstructor()
+                ))
+                .collect(Collectors.toList());
+    }
+
+
 
     // Método para listar todos os cursos
     public List<Course> getAllCourses() {

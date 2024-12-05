@@ -1,6 +1,7 @@
 package com.example.e_learning_api.api.controller;
 
 import com.example.e_learning_api.api.dto.EnrollmentRequestDTO;
+import com.example.e_learning_api.api.dto.EnrollmentResponseDTO;
 import com.example.e_learning_api.domain.model.Enrollment;
 import com.example.e_learning_api.application.service.EnrollmentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,10 +28,10 @@ public class EnrollmentController {
 
     // Endpoint para listar todas as matrículas de um usuário
     @GetMapping("/user/{userId}")
-    public ResponseEntity<List<Enrollment>> getUserEnrollments(@PathVariable Long userId) {
+    public ResponseEntity<List<EnrollmentResponseDTO>> getUserEnrollments(@PathVariable Long userId) {
+        // O controlador agora retorna a lista de EnrollmentResponseDTO
         return ResponseEntity.ok(enrollmentService.getUserEnrollments(userId));
     }
-
     // Endpoint para listar todas as matrículas de um curso
     @GetMapping("/course/{courseId}")
     public ResponseEntity<List<Enrollment>> getCourseEnrollments(@PathVariable Long courseId) {

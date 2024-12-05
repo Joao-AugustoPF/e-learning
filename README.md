@@ -1,6 +1,6 @@
 # **E-learning API**
 
-Bem-vindo à **E-learning API**, uma aplicação RESTful construída com **Spring Boot**. Este sistema gerencia cursos, usuários e matrículas, suportando integração com **Apache Kafka** e documentação automatizada com **Swagger**.
+Bem-vindo à **E-learning API**, uma aplicação RESTful construída com **Spring Boot**. Este sistema gerencia cursos, usuários e matrículas.
 
 ## **Sumário**
 - [Recursos Principais](#recursos-principais)
@@ -9,7 +9,6 @@ Bem-vindo à **E-learning API**, uma aplicação RESTful construída com **Sprin
     - [Usuários](#usuários)
     - [Matrículas](#matrículas)
 - [Configuração do Ambiente](#configuração-do-ambiente)
-- [Documentação com Swagger](#documentação-com-swagger)
 
 ---
 
@@ -18,9 +17,7 @@ Bem-vindo à **E-learning API**, uma aplicação RESTful construída com **Sprin
 - Gerenciamento de **cursos**: criação, listagem, atualização e exclusão.
 - Gerenciamento de **usuários**: registro, atualização e exclusão.
 - Sistema de **matrículas**: matricular usuários em cursos e rastrear progresso.
-- **Mensageria** com Apache Kafka para publicação e consumo de eventos.
 - Autenticação básica com Spring Security.
-- Configuração modular para diferentes ambientes (`dev`, `prod`).
 
 ---
 
@@ -65,7 +62,7 @@ Bem-vindo à **E-learning API**, uma aplicação RESTful construída com **Sprin
 
 1. **Clone o Repositório**:
    ```bash
-   git clone https://github.com/seu-usuario/e-learning-api.git
+   git clone https://github.com/Joao-AugustoPF/e-learning.git
    cd e-learning-api
    ```
 
@@ -75,8 +72,8 @@ Bem-vindo à **E-learning API**, uma aplicação RESTful construída com **Sprin
 
       ```properties
       spring.datasource.url=jdbc:postgresql://localhost:5432/elearning
-      spring.datasource.username=seu_usuario
-      spring.datasource.password=sua_senha
+      spring.datasource.username=postgres
+      spring.datasource.password=123456
       ```
 
 3. **Iniciar o Projeto**:
@@ -91,21 +88,3 @@ Bem-vindo à **E-learning API**, uma aplicação RESTful construída com **Sprin
       ```bash
       http://localhost:8080/api/courses
       ```
-
----
-
-## **Documentação com Swagger**
-
-A API inclui uma interface Swagger para visualização e teste de endpoints. Acesse-a em:
-
-```plaintext
-http://localhost:8080/swagger-ui.html
-```
-
----
-
-### **Licença**
-
-Este projeto está sob a licença [MIT](LICENSE).
-
----
